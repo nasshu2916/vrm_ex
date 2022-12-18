@@ -1,46 +1,49 @@
 defmodule VrmEx.Loader do
   @magic_text "glTF"
+  @vrm_version 2
 
   def load(data) do
     header(data)
   end
 
-  def header(
-        <<@magic_text>> <>
-          <<2::32-little-integer>> <>
-          <<file_size::32-little-integer>> <>
-          chunk_data
-      ) do
+  defp header(<<
+         @magic_text::binary,
+         @vrm_version::32-little-integer,
+         file_size::32-little-integer,
+         chunk_data::bits
+       >>) do
     %{
+      version: @vrm_version,
       file_size: file_size,
       chunk: chunk(chunk_data)
     }
   end
 
-  def header(_) do
-    :error
+  defp header(_) do
+    {:error, :failed_to_load_headers}
   end
 
-  def chunk(
-        <<chunk_size::32-little-integer>> <>
-          <<chunk_type::4-bytes>> <>
-          chunk_body
-      ) do
-    case chunk_body do
-      <<chunk_data::size(chunk_size)-bytes>> <> buffer ->
+  defp chunk(<<
+         chunk_size::32-little-integer,
+         chunk_type::4-bytes,
+         chunk_data::size(chunk_size)-bytes,
+         binary_buffer::bits
+       >>) do
+    case Jason.decode(chunk_data, keys: :atoms) do
+      {:ok, chunk_data} ->
         %{
           chunk_size: chunk_size,
           chunk_type: chunk_type,
           chunk_data: chunk_data,
-          buffer: buffer
+          binary_buffer: binary_buffer
         }
 
-      _ ->
-        :error
+      :error ->
+        {:error, :failed_to_load_chunk_data}
     end
   end
 
-  def chunk(_) do
-    :error
+  defp chunk(_) do
+    {:error, :failed_to_load_chunk}
   end
 end
