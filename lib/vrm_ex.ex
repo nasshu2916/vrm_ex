@@ -2,17 +2,11 @@ defmodule VrmEx do
   @moduledoc """
   Documentation for `VrmEx`.
   """
+  alias VrmEx.Loader
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> VrmEx.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def load(iodata, _opts \\ []) do
+    iodata
+    |> IO.iodata_to_binary()
+    |> Loader.load()
   end
 end
