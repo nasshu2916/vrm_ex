@@ -23,24 +23,18 @@ defmodule VrmEx.Loader do
     {:error, :failed_to_load_headers}
   end
 
-  defp chunk(<<
-         chunk_size::32-little-integer,
-         chunk_type::4-bytes,
-         chunk_data::size(chunk_size)-bytes,
-         binary_buffer::bits
-       >>) do
-    case Jason.decode(chunk_data, keys: :atoms) do
-      {:ok, chunk_data} ->
-        %{
-          chunk_size: chunk_size,
-          chunk_type: chunk_type,
-          chunk_data: chunk_data,
-          binary_buffer: binary_buffer
-        }
+  defp chunk(<<size::32-little-integer, "JSON"::binary, data::size(size)-bytes, binary::bits>>) do
+    case Jason.decode(data, keys: :atoms) do
+      {:ok, data} ->
+        %{size: size, type: "JSON", data: data, binary: chunk(binary)}
 
       :error ->
-        {:error, :failed_to_load_chunk_data}
+        {:error, :failed_to_decode_json}
     end
+  end
+
+  defp chunk(<<size::32-little-integer, "BIN\0"::binary, data::size(size)-bytes>>) do
+    %{size: size, type: "BIN\0", data: data}
   end
 
   defp chunk(_) do
