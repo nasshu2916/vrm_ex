@@ -5,6 +5,6 @@ defmodule VrmEx.Loader do
     {header, chunk} = Header.load(data)
     [json, binary] = Chunk.load(chunk)
 
-    %{header: header, data: json, binary: binary}
+    %{header: header, json_chunk: json, binary_chunk: binary}
   end
 end
