@@ -14,7 +14,7 @@ defmodule VrmEx.Chunk do
         data::size(length)-bytes,
         rest::bits
       >>) do
-    data = Jason.decode!(data, keys: :atoms)
+    data = Jason.decode!(data)
 
     [%__MODULE__{length: length, type: "JSON", data: data} | load(rest)]
   end
