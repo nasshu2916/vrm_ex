@@ -2,14 +2,24 @@ defmodule VrmEx do
   @moduledoc """
   Documentation for `VrmEx`.
   """
-  alias VrmEx.Loader
+  alias VrmEx.{Chunk, Header, Loader}
 
-  def load(iodata, _opts \\ []) do
+  defstruct [:header, :json_chunk, :binary_chunk]
+
+  @type t() :: %__MODULE__{
+          header: Header.t(),
+          json_chunk: Chunk.json_chunk(),
+          binary_chunk: Chunk.bin()
+        }
+
+  @spec load(iodata()) :: t()
+  def load(iodata) do
     iodata
     |> IO.iodata_to_binary()
     |> Loader.load()
   end
 
+  @spec thumbnail(t()) :: %{mime_type: String.t(), name: String.t(), image: binary()}
   def thumbnail(vrm) do
     %{
       json_chunk: %{
