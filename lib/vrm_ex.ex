@@ -23,17 +23,29 @@ defmodule VrmEx do
   def thumbnail(vrm) do
     %{
       json_chunk: %{
-        data: %{"extensions" => extensions, "images" => images, "bufferViews" => buffer_views}
+        data: %{"images" => images, "bufferViews" => buffer_views}
       },
       binary_chunk: %{data: binary_data}
     } = vrm
 
+    %{"images" => thumbnail_index} = meta(vrm)
+
     %{"mimeType" => mime_type, "name" => name, "bufferView" => index} =
-      Enum.at(images, get_in(extensions, ["VRM", "meta", "texture"]))
+      Enum.at(images, thumbnail_index)
 
     %{"byteOffset" => offset, "byteLength" => length} = Enum.at(buffer_views, index)
 
     <<_::size(offset)-bytes, image::size(length)-bytes, _::bits>> = binary_data
     %{mime_type: mime_type, name: name, image: image}
+  end
+
+  def meta(vrm) do
+    %{
+      json_chunk: %{
+        data: %{"extensions" => %{"VRM" => %{"meta" => meta}}}
+      }
+    } = vrm
+
+    meta
   end
 end
