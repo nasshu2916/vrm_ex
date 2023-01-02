@@ -23,7 +23,8 @@ defmodule VrmEx.MixProject do
     [
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
-      {:jason, "~> 1.4"}
+      {:jason, "~> 1.4"},
+      {:mime, "~> 2.0"}
     ]
   end
 end
