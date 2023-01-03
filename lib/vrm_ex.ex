@@ -2,7 +2,7 @@ defmodule VrmEx do
   @moduledoc """
   Documentation for `VrmEx`.
   """
-  alias VrmEx.{Chunk, Header, Loader}
+  alias VrmEx.{Chunk, Header, Meta, Loader}
 
   defstruct [:header, :json_chunk, :binary_chunk]
 
@@ -24,17 +24,6 @@ defmodule VrmEx do
     |> Loader.load()
   end
 
-  @spec meta(t()) :: map()
-  def meta(vrm) do
-    %{
-      json_chunk: %{
-        data: %{"extensions" => %{"VRM" => %{"meta" => meta}}}
-      }
-    } = vrm
-
-    meta
-  end
-
   @spec thumbnail(t()) :: image()
   def thumbnail(vrm) do
     %{
@@ -44,7 +33,7 @@ defmodule VrmEx do
       binary_chunk: %{data: binary_data}
     } = vrm
 
-    %{"texture" => thumbnail_index} = meta(vrm)
+    thumbnail_index = vrm.json_chunk.data |> Meta.meta() |> Meta.thumbnail_index()
 
     %{"mimeType" => mime_type, "name" => name, "bufferView" => index} =
       Enum.at(images, thumbnail_index)
