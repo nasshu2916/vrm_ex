@@ -22,6 +22,8 @@ defmodule VrmEx.MixProject do
   defp deps do
     [
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
+      {:ex_json_schema, "~> 0.9.2"},
+      {:exconstructor, git: "https://github.com/nasshu2916/exconstructor.git"},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
       {:jason, "~> 1.4"},
       {:mime, "~> 2.0"}

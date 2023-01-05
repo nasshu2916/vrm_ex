@@ -24,3 +24,8 @@ vrm_ex-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+.iex.exs
+/schema/
+*.vrm
+*.vrm.json

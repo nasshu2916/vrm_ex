@@ -1,0 +1,17 @@
+defmodule <%= module_name %> do
+  <%= if description do %>
+  @moduledoc """
+  <%= description %>
+  """
+  <% else %>
+  @moduledoc false
+  <% end %>
+
+  defstruct <%= fields %>
+
+  @type t() :: %__MODULE__{
+    <%= module_types %>
+  }
+
+  use ExConstructor
+end
