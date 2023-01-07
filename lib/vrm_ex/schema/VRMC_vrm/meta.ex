@@ -8,7 +8,7 @@ defmodule VrmEx.Schema.Meta do
             allow_excessively_violent_usage: nil,
             allow_political_or_religious_usage: nil,
             allow_redistribution: nil,
-            authors: [nil],
+            authors: [],
             avatar_permission: nil,
             commercial_usage: nil,
             contact_information: nil,
@@ -20,7 +20,7 @@ defmodule VrmEx.Schema.Meta do
             modification: nil,
             name: nil,
             other_license_url: nil,
-            references: [nil],
+            references: [],
             third_party_licenses: nil,
             thumbnail_image: nil,
             version: nil

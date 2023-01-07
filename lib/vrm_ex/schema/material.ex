@@ -6,7 +6,7 @@ defmodule VrmEx.Schema.Material do
   defstruct alpha_cutoff: nil,
             alpha_mode: nil,
             double_sided: nil,
-            emissive_factor: [nil],
+            emissive_factor: [],
             emissive_texture: nil,
             extensions: nil,
             extras: nil,

@@ -1,9 +1,9 @@
 defmodule VrmEx.Schema.Vrm.Secondaryanimation.Spring do
   @moduledoc false
 
-  defstruct bones: [nil],
+  defstruct bones: [],
             center: nil,
-            collider_groups: [nil],
+            collider_groups: [],
             comment: nil,
             drag_force: nil,
             gravity_dir: %{x: nil, y: nil, z: nil},

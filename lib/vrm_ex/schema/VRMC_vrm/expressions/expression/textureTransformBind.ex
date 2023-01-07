@@ -6,8 +6,8 @@ defmodule VrmEx.Schema.TextureTransformBind do
   defstruct extensions: nil,
             extras: nil,
             material: nil,
-            offset: [nil],
-            scale: [nil]
+            offset: [],
+            scale: []
 
   @type t() :: %__MODULE__{
           extensions: nil,

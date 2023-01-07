@@ -6,7 +6,7 @@ defmodule VrmEx.Schema.MaterialColorBind do
   defstruct extensions: nil,
             extras: nil,
             material: nil,
-            target_value: [nil],
+            target_value: [],
             type: nil
 
   @type t() :: %__MODULE__{

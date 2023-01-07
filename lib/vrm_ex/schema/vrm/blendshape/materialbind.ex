@@ -3,7 +3,7 @@ defmodule VrmEx.Schema.Vrm.Blendshape.Materialbind do
 
   defstruct material_name: nil,
             property_name: nil,
-            target_value: [nil]
+            target_value: []
 
   @type t() :: %__MODULE__{
           material_name: String.t(),

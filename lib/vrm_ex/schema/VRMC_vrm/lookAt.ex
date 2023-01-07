@@ -5,7 +5,7 @@ defmodule VrmEx.Schema.LookAt do
 
   defstruct extensions: nil,
             extras: nil,
-            offset_from_head_bone: [nil],
+            offset_from_head_bone: [],
             range_map_horizontal_inner: %VrmEx.Schema.LookAtRangeMap{},
             range_map_horizontal_outer: %VrmEx.Schema.LookAtRangeMap{},
             range_map_vertical_down: %VrmEx.Schema.LookAtRangeMap{},

@@ -3,7 +3,7 @@ defmodule VrmEx.Schema.Vrm.Firstperson.Degreemap do
   Eye controller setting.
   """
 
-  defstruct curve: [nil],
+  defstruct curve: [],
             x_range: nil,
             y_range: nil
 

@@ -7,14 +7,14 @@ defmodule VrmEx.Schema.Node do
             children: [],
             extensions: nil,
             extras: nil,
-            matrix: [nil],
+            matrix: [],
             mesh: nil,
             name: nil,
-            rotation: [nil],
-            scale: [nil],
+            rotation: [],
+            scale: [],
             skin: nil,
-            translation: [nil],
-            weights: [nil]
+            translation: [],
+            weights: []
 
   @type t() :: %__MODULE__{
           camera: nil,

@@ -7,7 +7,7 @@ defmodule VrmEx.Schema.Mesh do
             extras: nil,
             name: nil,
             primitives: [%VrmEx.Schema.MeshPrimitive{}],
-            weights: [nil]
+            weights: []
 
   @type t() :: %__MODULE__{
           extensions: nil,
