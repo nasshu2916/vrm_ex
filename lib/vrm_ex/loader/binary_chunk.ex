@@ -19,6 +19,6 @@ defmodule VrmEx.Loader.BinaryChunk do
   end
 
   def load() do
-    {:error, "failed_load_binary_chunk"}
+    {:error, "invalid_binary_chunk"}
   end
 end

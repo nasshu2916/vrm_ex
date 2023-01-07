@@ -17,11 +17,11 @@ defmodule VrmEx.Loader.JsonChunk do
       >>) do
     case Jason.decode(data) do
       {:ok, data} -> {:ok, {%__MODULE__{length: length, data: data}, rest}}
-      {:error, _} -> {:error, "failed_load_json_chunk"}
+      {:error, _} -> {:error, "invalid_json_chunk"}
     end
   end
 
   def load() do
-    {:error, "failed_load_json_chunk"}
+    {:error, "invalid_json_chunk"}
   end
 end

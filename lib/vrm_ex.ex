@@ -2,7 +2,7 @@ defmodule VrmEx do
   @moduledoc """
   Documentation for `VrmEx`.
   """
-  alias VrmEx.{Meta, Loader}
+  alias VrmEx.{Meta, Loader, LoadError}
 
   defstruct [:json_data, :binary]
 
@@ -27,7 +27,7 @@ defmodule VrmEx do
   def load!(iodata) do
     case load(iodata) do
       {:ok, result} -> result
-      {:error, reason} -> raise(reason)
+      {:error, reason} -> raise(LoadError, reason)
     end
   end
 

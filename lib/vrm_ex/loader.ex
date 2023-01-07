@@ -1,3 +1,13 @@
+defmodule VrmEx.LoadError do
+  defexception [:message]
+
+  @impl Exception
+  def exception(reason) do
+    message = "failed to load: #{reason}"
+    %__MODULE__{message: message}
+  end
+end
+
 defmodule VrmEx.Loader do
   alias VrmEx.Loader.{BinaryChunk, Header, JsonChunk}
 

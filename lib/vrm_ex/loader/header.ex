@@ -21,6 +21,6 @@ defmodule VrmEx.Loader.Header do
   end
 
   def load(_) do
-    {:error, "failed_load_header"}
+    {:error, "invalid_header"}
   end
 end
