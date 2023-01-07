@@ -5,7 +5,7 @@ defmodule VrmEx.Loader.JsonChunk do
 
   @type t() :: %__MODULE__{
           length: integer(),
-          data: map() | binary()
+          data: %{String.t() => any()}
         }
 
   @spec load(binary()) :: {:ok, {t(), binary()}} | {:error, String.t()}

@@ -5,7 +5,7 @@ defmodule VrmEx.Loader.BinaryChunk do
 
   @type t() :: %__MODULE__{
           length: integer(),
-          data: map() | binary()
+          data: binary()
         }
 
   @spec load(binary()) :: {:ok, {t(), binary()}} | {:error, String.t()}

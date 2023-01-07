@@ -4,12 +4,11 @@ defmodule VrmEx do
   """
   alias VrmEx.{Meta, Loader}
 
-  defstruct [:header, :json_chunk, :binary_chunk]
+  defstruct [:json_data, :binary]
 
   @type t() :: %__MODULE__{
-          header: Loader.Header.t(),
-          json_chunk: Loader.JsonChunk.t(),
-          binary_chunk: Loader.BinaryChunk.t()
+          json_data: %{String.t() => any()},
+          binary: binary()
         }
   @type image :: %{
           mime_type: String.t(),
@@ -35,30 +34,26 @@ defmodule VrmEx do
   @spec thumbnail(t()) :: image()
   def thumbnail(vrm) do
     %{
-      json_chunk: %{
-        data: %{"images" => images, "bufferViews" => buffer_views}
-      },
-      binary_chunk: %{data: binary_data}
+      json_data: %{"images" => images, "bufferViews" => buffer_views},
+      binary: binary
     } = vrm
 
-    thumbnail_index = vrm.json_chunk.data |> Meta.meta() |> Meta.thumbnail_index()
+    thumbnail_index = vrm |> Meta.meta() |> Meta.thumbnail_index()
 
     %{"mimeType" => mime_type, "name" => name, "bufferView" => index} =
       Enum.at(images, thumbnail_index)
 
     %{"byteOffset" => offset, "byteLength" => length} = Enum.at(buffer_views, index)
 
-    <<_::size(offset)-bytes, image_data::size(length)-bytes, _::bits>> = binary_data
+    <<_::size(offset)-bytes, image_data::size(length)-bytes, _::bits>> = binary
     %{mime_type: mime_type, name: name, data: image_data}
   end
 
   @spec images(t()) :: [image()]
   def images(vrm) do
     %{
-      json_chunk: %{
-        data: %{"images" => images, "bufferViews" => buffer_views}
-      },
-      binary_chunk: %{data: binary_data}
+      json_data: %{"images" => images, "bufferViews" => buffer_views},
+      binary: binary
     } = vrm
 
     for image <- images do
@@ -66,7 +61,7 @@ defmodule VrmEx do
 
       %{"byteOffset" => offset, "byteLength" => length} = Enum.at(buffer_views, index)
 
-      <<_::size(offset)-bytes, image_data::size(length)-bytes, _::bits>> = binary_data
+      <<_::size(offset)-bytes, image_data::size(length)-bytes, _::bits>> = binary
       %{mime_type: mime_type, name: name, data: image_data}
     end
   end

@@ -1,12 +1,12 @@
 defmodule VrmEx.Meta do
   @type meta :: map()
 
-  @spec meta(map) :: meta()
-  def meta(%{"extensions" => %{"VRM" => %{"meta" => meta}}}) do
+  @spec meta(VrmEx.t()) :: meta()
+  def meta(%{json_data: %{"extensions" => %{"VRM" => %{"meta" => meta}}}}) do
     meta
   end
 
-  def meta(%{"extensions" => %{"VRMC_vrm" => %{"meta" => meta}}}) do
+  def meta(%{json_data: %{"extensions" => %{"VRMC_vrm" => %{"meta" => meta}}}}) do
     meta
   end
 
