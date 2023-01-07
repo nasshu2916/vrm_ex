@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.AnimationSampler do
+defmodule VrmEx.Schema.AnimationSampler do
   @moduledoc """
   An animation sampler combines timestamps with a sequence of output values and defines an interpolation algorithm.
   """

@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Vrm.Firstperson.Meshannotation do
+defmodule VrmEx.Schema.Vrm.Firstperson.Meshannotation do
   @moduledoc false
 
   defstruct first_person_flag: nil,

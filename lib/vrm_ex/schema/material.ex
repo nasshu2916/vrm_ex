@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Material do
+defmodule VrmEx.Schema.Material do
   @moduledoc """
   The material appearance of a primitive.
   """

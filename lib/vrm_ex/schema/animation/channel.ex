@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.AnimationChannel do
+defmodule VrmEx.Schema.AnimationChannel do
   @moduledoc """
   An animation channel combines an animation sampler with a target property being animated.
   """

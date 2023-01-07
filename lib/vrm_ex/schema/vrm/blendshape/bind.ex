@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Vrm.Blendshape.Bind do
+defmodule VrmEx.Schema.Vrm.Blendshape.Bind do
   @moduledoc false
 
   defstruct index: nil,

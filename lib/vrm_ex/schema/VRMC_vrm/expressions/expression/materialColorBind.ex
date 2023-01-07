@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.MaterialColorBind do
+defmodule VrmEx.Schema.MaterialColorBind do
   @moduledoc """
   Material color value associated with a expression
   """

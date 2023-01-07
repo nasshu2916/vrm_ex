@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.MeshAnnotation do
+defmodule VrmEx.Schema.MeshAnnotation do
   @moduledoc """
   Specify how the mesh should be interpreted by the camera
   """

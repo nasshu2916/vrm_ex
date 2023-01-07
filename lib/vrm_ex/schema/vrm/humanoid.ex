@@ -1,10 +1,10 @@
-defmodule Elixir.VrmEx.Schema.Vrm.Humanoid do
+defmodule VrmEx.Schema.Vrm.Humanoid do
   @moduledoc false
 
   defstruct arm_stretch: nil,
             feet_spacing: nil,
             has_translation_do_f: nil,
-            human_bones: [%Elixir.VrmEx.Schema.Vrm.Humanoid.Bone{}],
+            human_bones: [%VrmEx.Schema.Vrm.Humanoid.Bone{}],
             leg_stretch: nil,
             lower_arm_twist: nil,
             lower_leg_twist: nil,
@@ -15,7 +15,7 @@ defmodule Elixir.VrmEx.Schema.Vrm.Humanoid do
           arm_stretch: number(),
           feet_spacing: number(),
           has_translation_do_f: boolean(),
-          human_bones: [Elixir.VrmEx.Schema.Vrm.Humanoid.Bone.t()],
+          human_bones: [VrmEx.Schema.Vrm.Humanoid.Bone.t()],
           leg_stretch: number(),
           lower_arm_twist: number(),
           lower_leg_twist: number(),

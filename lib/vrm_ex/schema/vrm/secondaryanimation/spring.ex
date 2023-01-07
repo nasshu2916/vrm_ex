@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Vrm.Secondaryanimation.Spring do
+defmodule VrmEx.Schema.Vrm.Secondaryanimation.Spring do
   @moduledoc false
 
   defstruct bones: [nil],

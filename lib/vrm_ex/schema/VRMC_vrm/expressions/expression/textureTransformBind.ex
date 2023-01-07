@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.TextureTransformBind do
+defmodule VrmEx.Schema.TextureTransformBind do
   @moduledoc """
   Texture transform value associated with a expression
   """

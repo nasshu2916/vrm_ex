@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Camera do
+defmodule VrmEx.Schema.Camera do
   @moduledoc """
   A camera's projection.  A node **MAY** reference a camera to apply a transform to place the camera in the scene.
   """

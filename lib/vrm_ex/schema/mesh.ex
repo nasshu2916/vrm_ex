@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Mesh do
+defmodule VrmEx.Schema.Mesh do
   @moduledoc """
   A set of primitives to be rendered.  Its global transform is defined by a node that references it.
   """
@@ -6,14 +6,14 @@ defmodule Elixir.VrmEx.Schema.Mesh do
   defstruct extensions: nil,
             extras: nil,
             name: nil,
-            primitives: [%Elixir.VrmEx.Schema.MeshPrimitive{}],
+            primitives: [%VrmEx.Schema.MeshPrimitive{}],
             weights: [nil]
 
   @type t() :: %__MODULE__{
           extensions: nil,
           extras: nil,
           name: nil,
-          primitives: [Elixir.VrmEx.Schema.MeshPrimitive.t()],
+          primitives: [VrmEx.Schema.MeshPrimitive.t()],
           weights: [number()]
         }
 

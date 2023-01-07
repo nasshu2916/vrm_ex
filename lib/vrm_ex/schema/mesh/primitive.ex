@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.MeshPrimitive do
+defmodule VrmEx.Schema.MeshPrimitive do
   @moduledoc """
   Geometry to be rendered with the given material.
   """

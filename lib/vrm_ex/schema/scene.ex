@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Scene do
+defmodule VrmEx.Schema.Scene do
   @moduledoc """
   The root nodes of a scene.
   """

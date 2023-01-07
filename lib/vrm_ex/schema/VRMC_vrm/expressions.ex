@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Expressions do
+defmodule VrmEx.Schema.Expressions do
   @moduledoc """
   Definition of expressions
   """
@@ -7,24 +7,24 @@ defmodule Elixir.VrmEx.Schema.Expressions do
             extensions: nil,
             extras: nil,
             preset: %{
-              aa: %Elixir.VrmEx.Schema.Expression{},
-              angry: %Elixir.VrmEx.Schema.Expression{},
-              blink: %Elixir.VrmEx.Schema.Expression{},
-              blinkLeft: %Elixir.VrmEx.Schema.Expression{},
-              blinkRight: %Elixir.VrmEx.Schema.Expression{},
-              ee: %Elixir.VrmEx.Schema.Expression{},
-              happy: %Elixir.VrmEx.Schema.Expression{},
-              ih: %Elixir.VrmEx.Schema.Expression{},
-              lookDown: %Elixir.VrmEx.Schema.Expression{},
-              lookLeft: %Elixir.VrmEx.Schema.Expression{},
-              lookRight: %Elixir.VrmEx.Schema.Expression{},
-              lookUp: %Elixir.VrmEx.Schema.Expression{},
-              neutral: %Elixir.VrmEx.Schema.Expression{},
-              oh: %Elixir.VrmEx.Schema.Expression{},
-              ou: %Elixir.VrmEx.Schema.Expression{},
-              relaxed: %Elixir.VrmEx.Schema.Expression{},
-              sad: %Elixir.VrmEx.Schema.Expression{},
-              surprised: %Elixir.VrmEx.Schema.Expression{}
+              aa: %VrmEx.Schema.Expression{},
+              angry: %VrmEx.Schema.Expression{},
+              blink: %VrmEx.Schema.Expression{},
+              blinkLeft: %VrmEx.Schema.Expression{},
+              blinkRight: %VrmEx.Schema.Expression{},
+              ee: %VrmEx.Schema.Expression{},
+              happy: %VrmEx.Schema.Expression{},
+              ih: %VrmEx.Schema.Expression{},
+              lookDown: %VrmEx.Schema.Expression{},
+              lookLeft: %VrmEx.Schema.Expression{},
+              lookRight: %VrmEx.Schema.Expression{},
+              lookUp: %VrmEx.Schema.Expression{},
+              neutral: %VrmEx.Schema.Expression{},
+              oh: %VrmEx.Schema.Expression{},
+              ou: %VrmEx.Schema.Expression{},
+              relaxed: %VrmEx.Schema.Expression{},
+              sad: %VrmEx.Schema.Expression{},
+              surprised: %VrmEx.Schema.Expression{}
             }
 
   @type t() :: %__MODULE__{

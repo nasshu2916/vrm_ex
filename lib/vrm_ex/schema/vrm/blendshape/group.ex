@@ -1,16 +1,16 @@
-defmodule Elixir.VrmEx.Schema.Vrm.Blendshape.Group do
+defmodule VrmEx.Schema.Vrm.Blendshape.Group do
   @moduledoc false
 
-  defstruct binds: [%Elixir.VrmEx.Schema.Vrm.Blendshape.Bind{}],
+  defstruct binds: [%VrmEx.Schema.Vrm.Blendshape.Bind{}],
             is_binary: nil,
-            material_values: [%Elixir.VrmEx.Schema.Vrm.Blendshape.Materialbind{}],
+            material_values: [%VrmEx.Schema.Vrm.Blendshape.Materialbind{}],
             name: nil,
             preset_name: nil
 
   @type t() :: %__MODULE__{
-          binds: [Elixir.VrmEx.Schema.Vrm.Blendshape.Bind.t()],
+          binds: [VrmEx.Schema.Vrm.Blendshape.Bind.t()],
           is_binary: boolean(),
-          material_values: [Elixir.VrmEx.Schema.Vrm.Blendshape.Materialbind.t()],
+          material_values: [VrmEx.Schema.Vrm.Blendshape.Materialbind.t()],
           name: String.t(),
           preset_name: String.t()
         }

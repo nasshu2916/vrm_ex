@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Vrm.Meta do
+defmodule VrmEx.Schema.Vrm.Meta do
   @moduledoc false
 
   defstruct allowed_user_name: nil,

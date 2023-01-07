@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.HumanBone do
+defmodule VrmEx.Schema.HumanBone do
   @moduledoc """
   Represents a single bone of a Humanoid.
   """

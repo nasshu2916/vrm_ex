@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Skin do
+defmodule VrmEx.Schema.Skin do
   @moduledoc """
   Joints and matrices defining a skin.
   """

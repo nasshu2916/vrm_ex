@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Texture do
+defmodule VrmEx.Schema.Texture do
   @moduledoc """
   A texture and its sampler.
   """

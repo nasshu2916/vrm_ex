@@ -1,16 +1,16 @@
-defmodule Elixir.VrmEx.Schema.FirstPerson do
+defmodule VrmEx.Schema.FirstPerson do
   @moduledoc """
   First-person perspective settings
   """
 
   defstruct extensions: nil,
             extras: nil,
-            mesh_annotations: [%Elixir.VrmEx.Schema.MeshAnnotation{}]
+            mesh_annotations: [%VrmEx.Schema.MeshAnnotation{}]
 
   @type t() :: %__MODULE__{
           extensions: nil,
           extras: nil,
-          mesh_annotations: [Elixir.VrmEx.Schema.MeshAnnotation.t()]
+          mesh_annotations: [VrmEx.Schema.MeshAnnotation.t()]
         }
 
   use ExConstructor

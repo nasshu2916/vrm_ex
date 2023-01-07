@@ -1,16 +1,16 @@
-defmodule Elixir.VrmEx.Schema.Humanoid do
+defmodule VrmEx.Schema.Humanoid do
   @moduledoc """
   Correspondence between nodes and human bones
   """
 
   defstruct extensions: nil,
             extras: nil,
-            human_bones: %Elixir.VrmEx.Schema.HumanBones{}
+            human_bones: %VrmEx.Schema.HumanBones{}
 
   @type t() :: %__MODULE__{
           extensions: nil,
           extras: nil,
-          human_bones: Elixir.VrmEx.Schema.HumanBones.t()
+          human_bones: VrmEx.Schema.HumanBones.t()
         }
 
   use ExConstructor

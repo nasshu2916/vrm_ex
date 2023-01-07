@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.BufferView do
+defmodule VrmEx.Schema.BufferView do
   @moduledoc """
   A view into a buffer generally representing a subset of the buffer.
   """

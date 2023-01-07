@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Vrm.Humanoid.Bone do
+defmodule VrmEx.Schema.Vrm.Humanoid.Bone do
   @moduledoc false
 
   defstruct axis_length: nil,

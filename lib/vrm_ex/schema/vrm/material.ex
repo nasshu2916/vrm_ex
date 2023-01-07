@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Vrm.Material do
+defmodule VrmEx.Schema.Vrm.Material do
   @moduledoc false
 
   defstruct float_properties: %{},

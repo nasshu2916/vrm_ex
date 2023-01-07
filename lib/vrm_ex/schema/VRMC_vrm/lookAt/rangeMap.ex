@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.LookAtRangeMap do
+defmodule VrmEx.Schema.LookAtRangeMap do
   @moduledoc """
   Horizontal inward movement. The left eye moves right. The right eye moves left.
   """

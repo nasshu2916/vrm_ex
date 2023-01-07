@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Sampler do
+defmodule VrmEx.Schema.Sampler do
   @moduledoc """
   Texture sampler properties for filtering and wrapping modes.
   """

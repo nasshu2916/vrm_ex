@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Vrm.Secondaryanimation.Collidergroup do
+defmodule VrmEx.Schema.Vrm.Secondaryanimation.Collidergroup do
   @moduledoc false
 
   defstruct colliders: [%{offset: %{x: nil, y: nil, z: nil}, radius: nil}],

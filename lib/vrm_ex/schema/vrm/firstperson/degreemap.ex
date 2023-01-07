@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Vrm.Firstperson.Degreemap do
+defmodule VrmEx.Schema.Vrm.Firstperson.Degreemap do
   @moduledoc """
   Eye controller setting.
   """

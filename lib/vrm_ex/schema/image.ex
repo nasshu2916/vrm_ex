@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Image do
+defmodule VrmEx.Schema.Image do
   @moduledoc """
   Image data used to create a texture. Image **MAY** be referenced by an URI (or IRI) or a buffer view index.
   """

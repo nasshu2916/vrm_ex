@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Vrm.Blendshape.Materialbind do
+defmodule VrmEx.Schema.Vrm.Blendshape.Materialbind do
   @moduledoc false
 
   defstruct material_name: nil,

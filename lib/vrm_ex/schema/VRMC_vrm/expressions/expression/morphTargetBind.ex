@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.MorphTargetBind do
+defmodule VrmEx.Schema.MorphTargetBind do
   @moduledoc """
   Morph target value associated with a expression
   """

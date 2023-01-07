@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Accessor do
+defmodule VrmEx.Schema.Accessor do
   @moduledoc """
   A typed view into a buffer view that contains raw binary data.
   """

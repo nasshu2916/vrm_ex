@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Meta do
+defmodule VrmEx.Schema.Meta do
   @moduledoc """
 
   """

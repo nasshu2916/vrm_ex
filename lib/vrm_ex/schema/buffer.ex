@@ -1,4 +1,4 @@
-defmodule Elixir.VrmEx.Schema.Buffer do
+defmodule VrmEx.Schema.Buffer do
   @moduledoc """
   A buffer points to binary geometry, animation, or skins.
   """
