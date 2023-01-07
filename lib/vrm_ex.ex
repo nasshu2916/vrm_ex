@@ -2,14 +2,14 @@ defmodule VrmEx do
   @moduledoc """
   Documentation for `VrmEx`.
   """
-  alias VrmEx.{Chunk, Header, Meta, Loader}
+  alias VrmEx.{Meta, Loader}
 
   defstruct [:header, :json_chunk, :binary_chunk]
 
   @type t() :: %__MODULE__{
-          header: Header.t(),
-          json_chunk: Chunk.json_chunk(),
-          binary_chunk: Chunk.bin()
+          header: Loader.Header.t(),
+          json_chunk: Loader.JsonChunk.t(),
+          binary_chunk: Loader.BinaryChunk.t()
         }
   @type image :: %{
           mime_type: String.t(),
@@ -17,11 +17,19 @@ defmodule VrmEx do
           data: binary()
         }
 
-  @spec load(iodata()) :: t()
+  @spec load(iodata()) :: {:ok, t()} | {:error, String.t()}
   def load(iodata) do
     iodata
     |> IO.iodata_to_binary()
     |> Loader.load()
+  end
+
+  @spec load!(iodata()) :: t()
+  def load!(iodata) do
+    case load(iodata) do
+      {:ok, result} -> result
+      {:error, reason} -> raise(reason)
+    end
   end
 
   @spec thumbnail(t()) :: image()
