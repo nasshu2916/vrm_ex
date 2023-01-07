@@ -22,9 +22,9 @@ defmodule VrmEx.Schema.Vrm.Blendshape.Group do
 
     %{
       struct
-      | binds: Enum.map(struct.bone_groups, &VrmEx.Schema.Vrm.Blendshape.Bind.new/1),
+      | binds: Enum.map(struct.binds, &VrmEx.Schema.Vrm.Blendshape.Bind.new/1),
         material_values:
-          Enum.map(struct.collider_groups, &VrmEx.Schema.Vrm.Blendshape.Materialbind.new/1)
+          Enum.map(struct.material_values, &VrmEx.Schema.Vrm.Blendshape.Materialbind.new/1)
     }
   end
 end

@@ -64,7 +64,18 @@ defmodule VrmEx.Schema.GlTF do
         samplers: Enum.map(struct.samplers, &VrmEx.Schema.Sampler.new/1),
         scenes: Enum.map(struct.scenes, &VrmEx.Schema.Scene.new/1),
         skins: Enum.map(struct.skins, &VrmEx.Schema.Skin.new/1),
-        textures: Enum.map(struct.textures, &VrmEx.Schema.Texture.new/1)
+        textures: Enum.map(struct.textures, &VrmEx.Schema.Texture.new/1),
+        extensions: extensions_new(struct.extensions)
     }
+  end
+
+  defp extensions_new(extensions) do
+    for {key, value} <- extensions, into: %{} do
+      case key do
+        "VRM" -> {:vrm, VrmEx.Schema.Vrm.new(value)}
+        "VRMC_vrm" -> {:vrmc_vrm, VrmEx.Schema.VRMCVrm.new(value)}
+        _ -> {key, value}
+      end
+    end
   end
 end
