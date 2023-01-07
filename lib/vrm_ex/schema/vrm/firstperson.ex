@@ -8,7 +8,7 @@ defmodule VrmEx.Schema.Vrm.Firstperson do
             look_at_type_name: nil,
             look_at_vertical_down: %VrmEx.Schema.Vrm.Firstperson.Degreemap{},
             look_at_vertical_up: %VrmEx.Schema.Vrm.Firstperson.Degreemap{},
-            mesh_annotations: [%VrmEx.Schema.Vrm.Firstperson.Meshannotation{}]
+            mesh_annotations: []
 
   @type t() :: %__MODULE__{
           first_person_bone: integer(),
@@ -22,4 +22,14 @@ defmodule VrmEx.Schema.Vrm.Firstperson do
         }
 
   use ExConstructor
+
+  def new(map) do
+    struct = super(map)
+
+    %{
+      struct
+      | mesh_annotations:
+          Enum.map(struct.mesh_annotations, &VrmEx.Schema.Vrm.Firstperson.Meshannotation.new/1)
+    }
+  end
 end

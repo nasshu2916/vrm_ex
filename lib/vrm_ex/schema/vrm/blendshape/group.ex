@@ -1,9 +1,9 @@
 defmodule VrmEx.Schema.Vrm.Blendshape.Group do
   @moduledoc false
 
-  defstruct binds: [%VrmEx.Schema.Vrm.Blendshape.Bind{}],
+  defstruct binds: [],
             is_binary: nil,
-            material_values: [%VrmEx.Schema.Vrm.Blendshape.Materialbind{}],
+            material_values: [],
             name: nil,
             preset_name: nil
 
@@ -16,4 +16,15 @@ defmodule VrmEx.Schema.Vrm.Blendshape.Group do
         }
 
   use ExConstructor
+
+  def new(map) do
+    struct = super(map)
+
+    %{
+      struct
+      | binds: Enum.map(struct.bone_groups, &VrmEx.Schema.Vrm.Blendshape.Bind.new/1),
+        material_values:
+          Enum.map(struct.collider_groups, &VrmEx.Schema.Vrm.Blendshape.Materialbind.new/1)
+    }
+  end
 end

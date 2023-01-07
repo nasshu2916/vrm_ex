@@ -3,25 +3,25 @@ defmodule VrmEx.Schema.GlTF do
   The root object for a glTF asset.
   """
 
-  defstruct accessors: [%VrmEx.Schema.Accessor{}],
-            animations: [%VrmEx.Schema.Animation{}],
+  defstruct accessors: [],
+            animations: [],
             asset: nil,
-            buffer_views: [%VrmEx.Schema.BufferView{}],
-            buffers: [%VrmEx.Schema.Buffer{}],
-            cameras: [%VrmEx.Schema.Camera{}],
+            buffer_views: [],
+            buffers: [],
+            cameras: [],
             extensions: nil,
             extensions_required: [],
             extensions_used: [],
             extras: nil,
-            images: [%VrmEx.Schema.Image{}],
-            materials: [%VrmEx.Schema.Material{}],
-            meshes: [%VrmEx.Schema.Mesh{}],
-            nodes: [%VrmEx.Schema.Node{}],
-            samplers: [%VrmEx.Schema.Sampler{}],
+            images: [],
+            materials: [],
+            meshes: [],
+            nodes: [],
+            samplers: [],
             scene: nil,
-            scenes: [%VrmEx.Schema.Scene{}],
-            skins: [%VrmEx.Schema.Skin{}],
-            textures: [%VrmEx.Schema.Texture{}]
+            scenes: [],
+            skins: [],
+            textures: []
 
   @type t() :: %__MODULE__{
           accessors: [VrmEx.Schema.Accessor.t()],
@@ -46,4 +46,25 @@ defmodule VrmEx.Schema.GlTF do
         }
 
   use ExConstructor
+
+  def new(map) do
+    struct = super(map)
+
+    %{
+      struct
+      | accessors: Enum.map(struct.accessors, &VrmEx.Schema.Accessor.new/1),
+        animations: Enum.map(struct.animations, &VrmEx.Schema.Animation.new/1),
+        buffer_views: Enum.map(struct.buffer_views, &VrmEx.Schema.BufferView.new/1),
+        buffers: Enum.map(struct.buffers, &VrmEx.Schema.Buffer.new/1),
+        cameras: Enum.map(struct.cameras, &VrmEx.Schema.Camera.new/1),
+        images: Enum.map(struct.images, &VrmEx.Schema.Image.new/1),
+        materials: Enum.map(struct.materials, &VrmEx.Schema.Material.new/1),
+        meshes: Enum.map(struct.meshes, &VrmEx.Schema.Mesh.new/1),
+        nodes: Enum.map(struct.nodes, &VrmEx.Schema.Node.new/1),
+        samplers: Enum.map(struct.samplers, &VrmEx.Schema.Sampler.new/1),
+        scenes: Enum.map(struct.scenes, &VrmEx.Schema.Scene.new/1),
+        skins: Enum.map(struct.skins, &VrmEx.Schema.Skin.new/1),
+        textures: Enum.map(struct.textures, &VrmEx.Schema.Texture.new/1)
+    }
+  end
 end

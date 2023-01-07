@@ -5,7 +5,7 @@ defmodule VrmEx.Schema.FirstPerson do
 
   defstruct extensions: nil,
             extras: nil,
-            mesh_annotations: [%VrmEx.Schema.MeshAnnotation{}]
+            mesh_annotations: []
 
   @type t() :: %__MODULE__{
           extensions: nil,
@@ -14,4 +14,13 @@ defmodule VrmEx.Schema.FirstPerson do
         }
 
   use ExConstructor
+
+  def new(map) do
+    struct = super(map)
+
+    %{
+      struct
+      | mesh_annotations: Enum.map(struct.mesh_annotations, &VrmEx.Schema.MeshAnnotation.new/1)
+    }
+  end
 end

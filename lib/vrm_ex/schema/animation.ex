@@ -3,11 +3,11 @@ defmodule VrmEx.Schema.Animation do
   A keyframe animation.
   """
 
-  defstruct channels: [%VrmEx.Schema.AnimationChannel{}],
+  defstruct channels: [],
             extensions: nil,
             extras: nil,
             name: nil,
-            samplers: [%VrmEx.Schema.AnimationSampler{}]
+            samplers: []
 
   @type t() :: %__MODULE__{
           channels: [VrmEx.Schema.AnimationChannel.t()],
@@ -18,4 +18,14 @@ defmodule VrmEx.Schema.Animation do
         }
 
   use ExConstructor
+
+  def new(map) do
+    struct = super(map)
+
+    %{
+      struct
+      | channels: Enum.map(struct.channels, &VrmEx.Schema.AnimationChannel.new/1),
+        samplers: Enum.map(struct.samplers, &VrmEx.Schema.AnimationSampler.new/1)
+    }
+  end
 end

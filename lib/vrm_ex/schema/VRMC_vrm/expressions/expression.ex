@@ -6,12 +6,12 @@ defmodule VrmEx.Schema.Expression do
   defstruct extensions: nil,
             extras: nil,
             is_binary: nil,
-            material_color_binds: [%VrmEx.Schema.MaterialColorBind{}],
-            morph_target_binds: [%VrmEx.Schema.MorphTargetBind{}],
+            material_color_binds: [],
+            morph_target_binds: [],
             override_blink: nil,
             override_look_at: nil,
             override_mouth: nil,
-            texture_transform_binds: [%VrmEx.Schema.TextureTransformBind{}]
+            texture_transform_binds: []
 
   @type t() :: %__MODULE__{
           extensions: nil,
@@ -26,4 +26,18 @@ defmodule VrmEx.Schema.Expression do
         }
 
   use ExConstructor
+
+  def new(map) do
+    struct = super(map)
+
+    %{
+      struct
+      | material_color_binds:
+          Enum.map(struct.material_color_binds, &VrmEx.Schema.MaterialColorBind.new/1),
+        morph_target_binds:
+          Enum.map(struct.morph_target_binds, &VrmEx.Schema.MorphTargetBind.new/1),
+        texture_transform_binds:
+          Enum.map(struct.texture_transform_binds, &VrmEx.Schema.TextureTransformBind.new/1)
+    }
+  end
 end

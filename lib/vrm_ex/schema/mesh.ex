@@ -6,7 +6,7 @@ defmodule VrmEx.Schema.Mesh do
   defstruct extensions: nil,
             extras: nil,
             name: nil,
-            primitives: [%VrmEx.Schema.MeshPrimitive{}],
+            primitives: [],
             weights: []
 
   @type t() :: %__MODULE__{
@@ -18,4 +18,10 @@ defmodule VrmEx.Schema.Mesh do
         }
 
   use ExConstructor
+
+  def new(map) do
+    struct = super(map)
+
+    %{struct | primitives: Enum.map(struct.primitives, &VrmEx.Schema.MeshPrimitive.new/1)}
+  end
 end

@@ -9,7 +9,7 @@ defmodule VrmEx.Schema.MeshPrimitive do
             indices: nil,
             material: nil,
             mode: nil,
-            targets: [%{}]
+            targets: []
 
   @type t() :: %__MODULE__{
           attributes: map(),

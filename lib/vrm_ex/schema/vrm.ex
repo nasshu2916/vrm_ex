@@ -7,7 +7,7 @@ defmodule VrmEx.Schema.Vrm do
             exporter_version: nil,
             first_person: %VrmEx.Schema.Vrm.Firstperson{},
             humanoid: %VrmEx.Schema.Vrm.Humanoid{},
-            material_properties: [%VrmEx.Schema.Vrm.Material{}],
+            material_properties: [],
             meta: %VrmEx.Schema.Vrm.Meta{},
             secondary_animation: %VrmEx.Schema.Vrm.Secondaryanimation{},
             spec_version: nil
@@ -24,4 +24,13 @@ defmodule VrmEx.Schema.Vrm do
         }
 
   use ExConstructor
+
+  def new(map) do
+    struct = super(map)
+
+    %{
+      struct
+      | material_properties: Enum.map(struct.material_properties, &VrmEx.Schema.Material.new/1)
+    }
+  end
 end

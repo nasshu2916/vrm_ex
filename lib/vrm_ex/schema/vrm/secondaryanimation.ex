@@ -3,8 +3,8 @@ defmodule VrmEx.Schema.Vrm.Secondaryanimation do
   The setting of automatic animation of string-like objects such as tails and hairs.
   """
 
-  defstruct bone_groups: [%VrmEx.Schema.Vrm.Secondaryanimation.Spring{}],
-            collider_groups: [%VrmEx.Schema.Vrm.Secondaryanimation.Collidergroup{}]
+  defstruct bone_groups: [],
+            collider_groups: []
 
   @type t() :: %__MODULE__{
           bone_groups: [VrmEx.Schema.Vrm.Secondaryanimation.Spring.t()],
@@ -12,4 +12,19 @@ defmodule VrmEx.Schema.Vrm.Secondaryanimation do
         }
 
   use ExConstructor
+
+  def new(map) do
+    struct = super(map)
+
+    %{
+      struct
+      | bone_groups:
+          Enum.map(struct.bone_groups, &VrmEx.Schema.Vrm.Secondaryanimation.Spring.new/1),
+        collider_groups:
+          Enum.map(
+            struct.collider_groups,
+            &VrmEx.Schema.Vrm.Secondaryanimation.Collidergroup.new/1
+          )
+    }
+  end
 end
